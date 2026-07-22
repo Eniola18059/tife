@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tife Fabric Hub — Adire, Ankara, Aso Oke & More</title>
+<meta name="description" content="Premium adire, ankara, aso oke, lace and George fabrics. Tife Fabric Hub — your trusted Nigerian fabric destination.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --p:#2a0a3d;--p2:#3d1257;--p3:#5a1e7a;
+  --g:#b8892a;--g2:#d4a843;--g3:#f0c860;
+  --cream:#faf7f2;--cream2:#f3ede4;--cream3:#e8ddd0;
+  --ink:#1a1017;--ink2:#3d2d45;--ink3:#7a6b80;--ink4:#b5a8bc;
+  --white:#fff;--border:#e8dff0;
+  --wa:#25d366;--wa2:#1ebe5b;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+button{font-family:var(--sans);cursor:pointer;}
+img{max-width:100%;display:block;}
+.c{max-width:1240px;margin:0 auto;padding:0 32px;}
+
+/* ── PRELOADER ─────────────────────────────────── */
+#pl{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--p);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:28px;
+  transition:opacity .8s var(--ease),visibility .8s;
+}
+#pl.out{opacity:0;visibility:hidden;pointer-events:none;}
+
+/* Letter-by-letter word reveal */
+.pl-words{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.pl-word{display:flex;gap:0;overflow:hidden;}
+.pl-letter{
+  font-family:var(--serif);color:var(--white);
+  opacity:0;transform:translateY(30px);
+  animation:pl-rise .5s var(--ease) forwards;
+  line-height:1;
+}
+/* "Tife" — large */
+.pl-word-1 .pl-letter{font-size:52px;font-weight:900;letter-spacing:-.5px;}
+/* "Fabric Hub" — smaller italic gold */
+.pl-word-2 .pl-letter{font-size:22px;font-weight:400;font-style:italic;color:var(--g2);letter-spacing:.08em;}
+@keyframes pl-rise{to{opacity:1;transform:translateY(0);}}
+
+/* thin gold underline that draws after letters */
+.pl-underline{
+  width:0;height:1.5px;background:var(--g2);
+  animation:pl-draw 0.6s var(--ease) forwards;
+}
+@keyframes pl-draw{to{width:100%;}}
+
+/* subtle tagline */
+.pl-tag{
+  font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  opacity:0;animation:pl-fade .5s ease forwards;
+}
+@keyframes pl-fade{to{opacity:1;}}
+
+@media(prefers-reduced-motion:reduce){
+  .pl-letter{animation:none;opacity:1;transform:none;}
+  .pl-underline{animation:none;width:100%;}
+  .pl-tag{animation:none;opacity:1;}
+}
+
+/* ── NAV ───────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--cream3);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{display:flex;flex-direction:column;line-height:1;}
+.nav-logo-main{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--p);letter-spacing:.01em;}
+.nav-logo-sub{font-size:9.5px;font-weight:600;color:var(--ink3);letter-spacing:.18em;text-transform:uppercase;margin-top:2px;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--ink3);padding:8px 16px;border-radius:6px;transition:color .2s,background .2s;letter-spacing:.01em;}
+.nav-links a:hover{color:var(--p);background:rgba(42,10,61,.05);}
+.nav-shop{background:var(--p) !important;color:var(--white) !important;font-weight:600 !important;padding:10px 22px !important;border-radius:7px !important;}
+.nav-shop:hover{background:var(--p2) !important;}
+/* hamburger */
+.nav-right{display:flex;align-items:center;gap:12px;}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:transparent;border:1.5px solid var(--cream3);border-radius:8px;padding:9px 8px;cursor:pointer;transition:border-color .2s;}
+.hamburger:hover{border-color:var(--p);}
+.hamburger span{display:block;width:100%;height:1.5px;background:var(--p);border-radius:2px;transition:transform .35s var(--ease),opacity .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(26,16,23,.5);z-index:190;opacity:0;pointer-events:none;transition:opacity .3s;}
+.nav-overlay.show{display:block;opacity:1;pointer-events:auto;}
+.nav-drawer{position:fixed;top:0;right:-100%;width:min(320px,85vw);height:100%;background:var(--cream);z-index:195;padding:0;box-shadow:-16px 0 48px rgba(0,0,0,.15);transition:right .38s var(--ease);display:flex;flex-direction:column;}
+.nav-drawer.open{right:0;}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--cream3);}
+.drawer-head .drawer-brand{font-family:var(--serif);font-size:17px;color:var(--p);}
+.drawer-close-btn{width:34px;height:34px;border-radius:7px;background:var(--cream2);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--ink3);transition:background .15s;}
+.drawer-close-btn:hover{background:var(--cream3);}
+.drawer-links{padding:16px 16px;display:flex;flex-direction:column;gap:2px;flex:1;}
+.drawer-links a{font-size:15px;font-weight:500;color:var(--ink2);padding:13px 16px;border-radius:9px;transition:background .15s,color .15s;}
+.drawer-links a:hover{background:rgba(42,10,61,.06);color:var(--p);}
+.drawer-foot{padding:20px 24px;border-top:1px solid var(--cream3);}
+.drawer-foot a{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--p);color:var(--white);font-size:14px;font-weight:600;padding:13px;border-radius:10px;}
+
+/* ── HERO ──────────────────────────────────────── */
+.hero{background:var(--cream);min-height:calc(100vh - 68px);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+
+/* Left — photo side */
+.hero-photo-side{position:relative;background:var(--p);overflow:hidden;}
+/* fabric weave texture */
+.hero-photo-side::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 40px);pointer-events:none;z-index:1;}
+/*
+══════════════════════════════════════════════════
+  PHOTO — Replace the div.photo-placeholder with:
+
+  <img src="oluwatobiloba.jpg"
+       alt="Oluwatobiloba — Tife Fabric Hub"
+       class="hero-photo-img">
+
+  Add this CSS for it:
+  .hero-photo-img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+══════════════════════════════════════════════════
+*/
+.photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative;z-index:2;min-height:600px;}
+.photo-placeholder-icon{width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
+.photo-placeholder-text{color:rgba(255,255,255,.5);font-size:13px;text-align:center;line-height:1.6;padding:0 32px;}
+.photo-placeholder-hint{font-size:11.5px;font-weight:600;color:var(--g2);background:rgba(184,137,42,.15);padding:6px 16px;border-radius:99px;border:1px solid rgba(184,137,42,.25);}
+/* gold accent bar on right edge of photo */
+.hero-photo-side::after{content:'';position:absolute;top:15%;right:0;width:4px;height:70%;background:linear-gradient(to bottom,transparent,var(--g2),transparent);z-index:3;}
+
+/* Right — text side */
+.hero-text-side{display:flex;flex-direction:column;justify-content:center;padding:72px 48px 72px 56px;position:relative;}
+/* subtle pattern */
+.hero-text-side::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(42,10,61,.04) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.hero-text-inner{position:relative;z-index:1;}
+.hero-overline{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
+.hero-overline-line{width:32px;height:1.5px;background:var(--g);}
+.hero-overline-text{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g);}
+
+/* Typewriter line */
+.hero-greeting{font-size:14px;font-weight:400;color:var(--ink3);margin-bottom:20px;min-height:22px;font-style:italic;}
+.hero-greeting .tw{color:var(--p2);font-style:italic;}
+.tw-cursor{color:var(--g2);animation:blink .8s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.hero-h{font-family:var(--serif);font-size:62px;font-weight:900;line-height:1.0;letter-spacing:-1.5px;color:var(--ink);margin-bottom:28px;}
+.hero-h .italic{font-style:italic;color:var(--p);}
+.hero-h .gold{color:var(--g);font-style:normal;}
+.hero-desc{font-size:15px;color:var(--ink3);line-height:1.75;max-width:380px;margin-bottom:40px;font-weight:400;}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--p);color:var(--white);font-size:14px;font-weight:600;padding:15px 30px;border-radius:8px;transition:background .2s,transform .15s;letter-spacing:.02em;margin-bottom:48px;}
+.hero-cta:hover{background:var(--p2);transform:translateY(-1px);}
+.hero-cta svg{transition:transform .2s;}
+.hero-cta:hover svg{transform:translateX(4px);}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--cream3);padding-top:32px;}
+.hero-stat{flex:1;padding-right:28px;}
+.hero-stat:not(:last-child){border-right:1px solid var(--cream3);margin-right:28px;}
+.hero-stat-num{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--p);letter-spacing:-.5px;margin-bottom:3px;}
+.hero-stat-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);}
+
+/* ── TICKER ────────────────────────────────────── */
+.ticker{background:var(--p);padding:14px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.05);}
+.ticker-inner{display:flex;width:max-content;animation:tick 36s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.ticker-item{display:flex;align-items:center;gap:10px;padding:0 32px;color:rgba(255,255,255,.75);font-size:12.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+.ticker-sep{width:4px;height:4px;border-radius:50%;background:var(--g2);flex-shrink:0;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── ABOUT STRIP ───────────────────────────────── */
+.about-strip{padding:80px 0;background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-left{}
+.about-overline{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:16px;}
+.about-h{font-family:var(--serif);font-size:40px;font-weight:700;line-height:1.15;color:var(--ink);margin-bottom:20px;letter-spacing:-.5px;}
+.about-h em{color:var(--p);font-style:italic;}
+.about-p{font-size:15px;color:var(--ink3);line-height:1.8;margin-bottom:20px;}
+.about-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--p);border-bottom:1.5px solid var(--p);padding-bottom:2px;transition:gap .2s;}
+.about-link:hover{gap:14px;}
+.about-right{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.about-card{background:var(--cream);border-radius:16px;padding:28px 22px;border:1px solid var(--cream3);}
+.about-card-num{font-family:var(--serif);font-size:36px;font-weight:700;color:var(--p);margin-bottom:6px;}
+.about-card-label{font-size:12.5px;font-weight:600;color:var(--ink3);line-height:1.5;}
+.about-card-accent{width:32px;height:3px;background:var(--g2);border-radius:99px;margin-top:12px;}
+
+/* ── COLLECTION ────────────────────────────────── */
+.collection{padding:80px 0;background:var(--cream);}
+.section-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;}
+.section-overline{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:12px;}
+.section-h{font-family:var(--serif);font-size:40px;font-weight:700;line-height:1.1;color:var(--ink);letter-spacing:-.5px;}
+.section-h em{color:var(--p);font-style:italic;}
+.section-link{font-size:13.5px;font-weight:600;color:var(--p);border-bottom:1.5px solid var(--p);padding-bottom:2px;white-space:nowrap;transition:opacity .2s;}
+.section-link:hover{opacity:.7;}
+/* grid */
+.collection-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:320px 280px;gap:16px;}
+.col-tile{border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:28px;color:var(--white);transition:transform .3s var(--ease);}
+.col-tile:hover{transform:scale(.985);}
+.col-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,16,23,.75) 0%,rgba(26,16,23,.1) 50%,transparent 100%);}
+.col-tile-body{position:relative;z-index:1;}
+.col-tile-cat{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:6px;}
+.col-tile-name{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.1;margin-bottom:10px;}
+.col-tile-btn{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2);padding:7px 14px;border-radius:99px;transition:background .2s;}
+.col-tile:hover .col-tile-btn{background:rgba(255,255,255,.28);}
+.col-tile-btn svg{transition:transform .2s;}
+.col-tile:hover .col-tile-btn svg{transform:translateX(3px);}
+/* tile backgrounds */
+.ct-adire{grid-row:span 2;background:linear-gradient(160deg,#2d0a50 0%,#0d0220 100%);}
+.ct-ankara{background:linear-gradient(160deg,#6b2000 0%,#2a0900 100%);}
+.ct-asoke{background:linear-gradient(160deg,#083d20 0%,#021508 100%);}
+.ct-lace{background:linear-gradient(160deg,#5a1550 0%,#1e0519 100%);}
+.ct-george{background:linear-gradient(160deg,#1a3060 0%,#070e24 100%);}
+/* subtle weave overlay on tiles */
+.col-tile::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0px,rgba(255,255,255,.02) 1px,transparent 1px,transparent 12px);z-index:0;}
+.col-tile-body{z-index:2;}
+/* large italic fabric name watermark */
+.col-tile-watermark{position:absolute;top:16px;right:16px;font-family:var(--serif);font-size:80px;font-weight:900;font-style:italic;color:rgba(255,255,255,.06);line-height:1;pointer-events:none;z-index:1;letter-spacing:-3px;}
+.ct-adire .col-tile-watermark{font-size:120px;}
+
+/* ── PROCESS ───────────────────────────────────── */
+.process{padding:80px 0;background:var(--p);position:relative;overflow:hidden;}
+.process::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 60px),repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 60px);}
+.process .section-overline{color:var(--g2);}
+.process .section-h{color:var(--white);}
+.process .section-h em{color:var(--g2);}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:20px;overflow:hidden;margin-top:48px;}
+.process-step{background:rgba(255,255,255,.04);padding:40px 36px;position:relative;}
+.process-step:hover{background:rgba(255,255,255,.07);}
+.step-num{font-family:var(--serif);font-size:64px;font-weight:900;font-style:italic;color:rgba(255,255,255,.07);position:absolute;top:16px;right:20px;line-height:1;}
+.step-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--g2);}
+.process-step h3{font-size:16px;font-weight:600;color:var(--white);margin-bottom:10px;letter-spacing:-.2px;}
+.process-step p{font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.7;}
+
+/* ── CTA BANNER ────────────────────────────────── */
+.cta-banner{padding:80px 0;background:var(--cream2);}
+.cta-inner{background:var(--white);border-radius:24px;padding:64px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;border:1px solid var(--cream3);}
+.cta-text{}
+.cta-overline{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:12px;}
+.cta-h{font-family:var(--serif);font-size:36px;font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-.5px;margin-bottom:10px;}
+.cta-h em{color:var(--p);font-style:italic;}
+.cta-sub{font-size:15px;color:var(--ink3);line-height:1.7;}
+.cta-actions{display:flex;flex-direction:column;gap:12px;align-items:center;flex-shrink:0;}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--p);color:var(--white);font-size:14px;font-weight:600;padding:14px 28px;border-radius:8px;transition:background .2s,transform .15s;white-space:nowrap;border:none;font-family:var(--sans);}
+.btn-primary:hover{background:var(--p2);transform:translateY(-1px);}
+.btn-secondary{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--ink2);font-size:13.5px;font-weight:500;padding:12px 24px;border-radius:8px;border:1.5px solid var(--cream3);transition:border-color .2s,color .2s;white-space:nowrap;font-family:var(--sans);cursor:pointer;}
+.btn-secondary:hover{border-color:var(--p);color:var(--p);}
+
+/* ── FOOTER ────────────────────────────────────── */
+.footer{background:var(--ink);padding:56px 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);}
+.f-logo{font-family:var(--serif);font-size:20px;color:var(--white);margin-bottom:12px;display:block;}
+.f-logo em{color:var(--g2);font-style:normal;}
+.f-desc{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.7;max-width:260px;margin-bottom:24px;}
+.f-wa{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:var(--white);font-size:13px;font-weight:600;padding:10px 18px;border-radius:8px;transition:background .15s;}
+.f-wa:hover{background:var(--wa2);}
+.f-col-title{font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px;}
+.f-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.5);margin-bottom:12px;transition:color .15s;}
+.f-col a:hover{color:var(--white);}
+.footer-btm{padding:20px 0;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.3);}
+
+/* ── WHATSAPP FAB ──────────────────────────────── */
+.wa-fab{position:fixed;bottom:28px;right:28px;z-index:300;width:56px;height:56px;border-radius:50%;background:var(--wa);color:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;}
+.wa-fab:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(37,211,102,.55);}
+.wa-fab-ring{position:absolute;width:100%;height:100%;border-radius:50%;border:2px solid var(--wa);opacity:0;animation:fab-ring 2.5s ease-out infinite 2s;}
+@keyframes fab-ring{0%{transform:scale(1);opacity:.6;}100%{transform:scale(1.8);opacity:0;}}
+
+/* ── SCROLL REVEAL ─────────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal-r.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* ── RESPONSIVE ────────────────────────────────── */
+@media(max-width:1100px){
+  .hero-h{font-size:50px;}
+  .hero-text-side{padding:56px 36px 56px 44px;}
+  .collection-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .ct-adire{grid-row:span 1;}
+  .col-tile{height:240px;}
+}
+@media(max-width:900px){
+  .c{padding:0 20px;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-photo-side{min-height:480px;order:2;}
+  .hero-text-side{padding:48px 20px 44px;order:1;}
+  .hero-text-side::before{display:none;}
+  .hero-h{font-size:42px;}
+  .about-grid{grid-template-columns:1fr;gap:48px;}
+  .process-steps{grid-template-columns:1fr;}
+  .cta-inner{grid-template-columns:1fr;gap:32px;padding:44px 36px;}
+  .cta-actions{flex-direction:row;align-items:flex-start;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .nav-links a:not(.nav-shop){display:none;}
+  .hamburger{display:flex;}
+  .section-top{flex-direction:column;align-items:flex-start;gap:16px;}
+}
+@media(max-width:640px){
+  .c{padding:0 16px;}
+  .hero-h{font-size:34px;letter-spacing:-.8px;}
+  .hero-text-side{padding:36px 14px 36px;}
+  .hero-photo-side{min-height:360px;}
+  .about-right{grid-template-columns:1fr 1fr;}
+  .collection-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .col-tile{height:180px;padding:18px;}
+  .col-tile-name{font-size:19px;}
+  .process-steps{border-radius:14px;}
+  .process-step{padding:28px 22px;}
+  .cta-inner{padding:32px 22px;border-radius:16px;}
+  .cta-actions{flex-direction:column;width:100%;}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-btm{flex-direction:column;gap:6px;text-align:center;}
+  .wa-fab{bottom:20px;right:20px;width:50px;height:50px;}
+}
+@media(max-width:420px){
+  .hero-h{font-size:28px;}
+  .collection-grid{grid-template-columns:1fr;}
+  .col-tile{height:160px;}
+  .about-right{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="pl">
+  <div class="pl-words">
+    <div class="pl-word pl-word-1"><span class="pl-letter" style="animation-delay:0.05s">T</span><span class="pl-letter" style="animation-delay:0.13s">I</span><span class="pl-letter" style="animation-delay:0.21s">F</span><span class="pl-letter" style="animation-delay:0.29s">E</span></div>
+    <div class="pl-word pl-word-2"><span class="pl-letter" style="animation-delay:0.55s">F</span><span class="pl-letter" style="animation-delay:0.61s">a</span><span class="pl-letter" style="animation-delay:0.67s">b</span><span class="pl-letter" style="animation-delay:0.73s">r</span><span class="pl-letter" style="animation-delay:0.79s">i</span><span class="pl-letter" style="animation-delay:0.85s">c</span><span class="pl-letter" style="animation-delay:0.91s;width:8px;">&nbsp;</span><span class="pl-letter" style="animation-delay:0.97s">H</span><span class="pl-letter" style="animation-delay:1.03s">u</span><span class="pl-letter" style="animation-delay:1.09s">b</span></div>
+    <div class="pl-underline" style="animation-delay:1.25s"></div>
+  </div>
+  <div class="pl-tag" style="animation-delay:1.75s">Premium Nigerian Fabrics</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="c nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">Tife Fabric Hub</span>
+      <span class="nav-logo-sub">Premium Nigerian Fabrics</span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="shop.html" class="nav-shop">Shop Now</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-head">
+    <span class="drawer-brand">Tife Fabric Hub</span>
+    <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">✕</button>
+  </div>
+  <div class="drawer-links">
+    <a href="#collection" onclick="closeMenu()">Collection</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#how-it-works" onclick="closeMenu()">How it Works</a>
+    <a href="shop.html" onclick="closeMenu()">Shop All Fabrics</a>
+  </div>
+  <div class="drawer-foot">
+    <a href="https://wa.me/2349094626953" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- Photo side -->
+  <div class="hero-photo-side">
+    <!--
+    ══════════════════════════════════════════
+    REPLACE THIS BLOCK with Oluwatobiloba's photo:
+
+    <img src="oluwatobiloba.jpg"
+         alt="Oluwatobiloba — Tife Fabric Hub"
+         style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+
+    ══════════════════════════════════════════
+    -->
+    <div class="photo-placeholder">
+      <div class="photo-placeholder-icon">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <p class="photo-placeholder-text">Oluwatobiloba's photo<br>goes here</p>
+      <span class="photo-placeholder-hint">📸 Replace with real photo</span>
+    </div>
+  </div>
+
+  <!-- Text side -->
+  <div class="hero-text-side">
+    <div class="hero-text-inner">
+
+      <div class="hero-overline">
+        <div class="hero-overline-line"></div>
+        <span class="hero-overline-text">Authentic Nigerian Fabrics</span>
+      </div>
+
+      <p class="hero-greeting">
+        <span class="tw" id="tw"></span><span class="tw-cursor">|</span>
+      </p>
+
+      <h1 class="hero-h">
+        Fabric that<br>
+        tells your<br>
+        <span class="italic">story.</span>
+      </h1>
+
+      <p class="hero-desc">
+        Premium adire, ankara, aso oke, lace and George fabrics — handpicked for quality, delivered across Nigeria. Browse our full collection and find your perfect fabric.
+      </p>
+
+      <a href="shop.html" class="hero-cta">
+        Browse Collection
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">5+</div>
+          <div class="hero-stat-label">Years in business</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">Fabric types</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">NG</div>
+          <div class="hero-stat-label">Nationwide delivery</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" aria-hidden="true">
+    <span class="ticker-item"><span class="ticker-sep"></span>Adire Fabric</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Ankara Prints</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Aso Oke</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Lace Fabric</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>George Fabric</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Premium Quality</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Nationwide Delivery</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Authentic Designs</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Adire Fabric</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Ankara Prints</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Aso Oke</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Lace Fabric</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>George Fabric</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Premium Quality</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Nationwide Delivery</span>
+    <span class="ticker-item"><span class="ticker-sep"></span>Authentic Designs</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-strip" id="about">
+  <div class="c">
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <p class="about-overline">Who we are</p>
+        <h2 class="about-h">Oluwatobiloba,<br><em>your fabric expert</em></h2>
+        <p class="about-p">With over 5 years of experience sourcing and supplying the finest Nigerian fabrics, Tife Fabric Hub is built on trust, quality, and a genuine love for our culture.</p>
+        <p class="about-p">From the deep indigo of adire to the vibrant patterns of ankara and the grandeur of aso oke — every fabric we carry is carefully selected to meet the highest standard.</p>
+        <a href="shop.html" class="about-link">
+          See the full collection
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="about-right reveal reveal-r d1">
+        <div class="about-card">
+          <div class="about-card-num">500+</div>
+          <div class="about-card-label">Happy customers across Nigeria</div>
+          <div class="about-card-accent"></div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-num">5+</div>
+          <div class="about-card-label">Years of fabric expertise</div>
+          <div class="about-card-accent"></div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-num">5</div>
+          <div class="about-card-label">Premium fabric categories</div>
+          <div class="about-card-accent"></div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-num">NG</div>
+          <div class="about-card-label">Delivering nationwide</div>
+          <div class="about-card-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+  <div class="c">
+    <div class="section-top">
+      <div>
+        <p class="section-overline reveal">What we carry</p>
+        <h2 class="section-h reveal d1">Our <em>collection</em></h2>
+      </div>
+      <a href="shop.html" class="section-link reveal d2">View all fabrics →</a>
+    </div>
+    <div class="collection-grid">
+
+      <a href="shop.html?cat=adire" class="col-tile ct-adire reveal">
+        <span class="col-tile-watermark">Adire</span>
+        <div class="col-tile-body">
+          <p class="col-tile-cat">Traditional</p>
+          <h3 class="col-tile-name">Adire Fabric</h3>
+          <span class="col-tile-btn">Browse <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="shop.html?cat=ankara" class="col-tile ct-ankara reveal d1">
+        <span class="col-tile-watermark">Ankara</span>
+        <div class="col-tile-body">
+          <p class="col-tile-cat">Vibrant Prints</p>
+          <h3 class="col-tile-name">Ankara</h3>
+          <span class="col-tile-btn">Browse <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="shop.html?cat=asoke" class="col-tile ct-asoke reveal d2">
+        <span class="col-tile-watermark">Aso Oke</span>
+        <div class="col-tile-body">
+          <p class="col-tile-cat">Ceremonial</p>
+          <h3 class="col-tile-name">Aso Oke</h3>
+          <span class="col-tile-btn">Browse <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="shop.html?cat=lace" class="col-tile ct-lace reveal d1">
+        <span class="col-tile-watermark">Lace</span>
+        <div class="col-tile-body">
+          <p class="col-tile-cat">Elegant</p>
+          <h3 class="col-tile-name">Lace Fabric</h3>
+          <span class="col-tile-btn">Browse <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="shop.html?cat=george" class="col-tile ct-george reveal d2">
+        <span class="col-tile-watermark">George</span>
+        <div class="col-tile-body">
+          <p class="col-tile-cat">Classic</p>
+          <h3 class="col-tile-name">George & Others</h3>
+          <span class="col-tile-btn">Browse <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="how-it-works">
+  <div class="c">
+    <p class="section-overline reveal">Simple process</p>
+    <h2 class="section-h reveal d1">How to get <em>your fabric</em></h2>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <span class="step-num">01</span>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6l10.5 7L22 6"/><rect x="1" y="4" width="22" height="16" rx="2"/></svg>
+        </div>
+        <h3>Browse the Shop</h3>
+        <p>Explore our full collection online — adire, ankara, aso oke, lace, george and more. Filter by fabric type and find what you love.</p>
+      </div>
+      <div class="process-step reveal d1">
+        <span class="step-num">02</span>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Chat With Us</h3>
+        <p>Found what you want? Reach out on WhatsApp. We'll confirm availability, discuss quantity, show you more samples if needed.</p>
+      </div>
+      <div class="process-step reveal d2">
+        <span class="step-num">03</span>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+        </div>
+        <h3>Pay & Receive</h3>
+        <p>Make payment, and your fabric gets carefully packaged and delivered to your door anywhere in Nigeria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="c">
+    <div class="cta-inner reveal">
+      <div class="cta-text">
+        <p class="cta-overline">Ready to find your fabric?</p>
+        <h2 class="cta-h">Shop the full<br><em>collection</em> today.</h2>
+        <p class="cta-sub">Hundreds of fabrics across adire, ankara, aso oke, lace and more — all in one place. Or reach out directly if you need help choosing.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="shop.html" class="btn-primary">
+          Browse the Shop
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="https://wa.me/2349094626953" target="_blank" rel="noopener" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:var(--wa)"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+          Ask on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="c">
+    <div class="footer-grid">
+      <div>
+        <span class="f-logo">Tife <em>Fabric</em> Hub</span>
+        <p class="f-desc">Your trusted source for premium Nigerian fabrics — adire, ankara, aso oke, lace and more. Quality you can feel.</p>
+        <a href="https://wa.me/2349094626953" target="_blank" rel="noopener" class="f-wa">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+          0909 462 6953
+        </a>
+      </div>
+      <div class="f-col">
+        <p class="f-col-title">Fabrics</p>
+        <a href="shop.html?cat=adire">Adire Fabric</a>
+        <a href="shop.html?cat=ankara">Ankara Prints</a>
+        <a href="shop.html?cat=asoke">Aso Oke</a>
+        <a href="shop.html?cat=lace">Lace Fabric</a>
+        <a href="shop.html?cat=george">George & Others</a>
+      </div>
+      <div class="f-col">
+        <p class="f-col-title">Information</p>
+        <a href="shop.html">Shop All</a>
+        <a href="#about">About Us</a>
+        <a href="#how-it-works">How to Order</a>
+        <a href="https://wa.me/2349094626953" target="_blank" rel="noopener">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <span>&copy; 2026 Tife Fabric Hub. All rights reserved.</span>
+      <span>Made with 🧵 in Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/2349094626953?text=Hello%20Tife%20Fabric%20Hub%2C%20I%20need%20help%20with%20a%20fabric" target="_blank" rel="noopener" class="wa-fab" aria-label="Chat on WhatsApp">
+  <span class="wa-fab-ring"></span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.78 14.13c-.25.7-1.45 1.34-2 1.43-.52.08-1.17.12-1.89-.12-.43-.14-.98-.32-1.69-.62-2.98-1.29-4.92-4.28-5.07-4.48-.15-.2-1.21-1.6-1.21-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.08.15.13.33.03.53-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.18.3.8 1.32 1.72 2.13 1.18 1.05 2.18 1.38 2.5 1.53.32.15.5.13.69-.05.2-.2.82-.94 1.04-1.27.22-.32.44-.27.74-.16.3.1 1.9.9 2.23 1.06.32.16.54.24.62.38.08.13.08.78-.17 1.49z"/></svg>
+</a>
+
+<script>
+// Preloader
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('pl').classList.add('out'), 2600);
+});
+
+// Typewriter
+(function(){
+  const phrases = [
+    'I am Oluwatobiloba, your trusted fabric dealer in Nigeria.',
+    'Where quality meets culture.',
+    'The finest adire, ankara & aso oke.'
+  ];
+  const el = document.getElementById('tw');
+  if(!el) return;
+  let pi=0, ci=0, del=false;
+  function tick(){
+    const p=phrases[pi];
+    el.textContent = del ? p.slice(0,ci--) : p.slice(0,ci++);
+    let t = del ? 40 : 70;
+    if(!del && ci>p.length){del=true;t=2400;}
+    else if(del && ci<0){del=false;pi=(pi+1)%phrases.length;ci=0;t=500;}
+    setTimeout(tick,t);
+  }
+  setTimeout(tick, 1700);
+})();
+
+// Hamburger / drawer
+const hbg = document.getElementById('hamburger');
+const drawer = document.getElementById('navDrawer');
+const overlay = document.getElementById('navOverlay');
+const dClose = document.getElementById('drawerClose');
+function openMenu(){hbg.classList.add('open');drawer.classList.add('open');overlay.classList.add('show');hbg.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+function closeMenu(){hbg.classList.remove('open');drawer.classList.remove('open');overlay.classList.remove('show');hbg.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+hbg.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
+dClose.addEventListener('click',closeMenu);
+overlay.addEventListener('click',closeMenu);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal,.reveal-r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
