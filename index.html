@@ -112,18 +112,14 @@ img{max-width:100%;display:block;}
 .hero-photo-side{position:relative;background:var(--p);overflow:hidden;}
 /* fabric weave texture */
 .hero-photo-side::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0px,rgba(255,255,255,.03) 1px,transparent 1px,transparent 40px);pointer-events:none;z-index:1;}
-/*
-══════════════════════════════════════════════════
-  PHOTO — Replace the div.photo-placeholder with:
 
   <img src="oluwatobiloba.jpg"
        alt="Oluwatobiloba — Tife Fabric Hub"
        class="hero-photo-img">
 
-  Add this CSS for it:
+  
   .hero-photo-img{width:100%;height:100%;object-fit:cover;object-position:top center;}
-══════════════════════════════════════════════════
-*/
+
 .photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative;z-index:2;min-height:600px;}
 .photo-placeholder-icon{width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;}
 .photo-placeholder-text{color:rgba(255,255,255,.5);font-size:13px;text-align:center;line-height:1.6;padding:0 32px;}
