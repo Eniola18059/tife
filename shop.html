@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Fabrics — Tife Fabric Hub | Adire, Ankara, Aso Oke & More</title>
+<meta name="description" content="Shop premium adire, ankara, aso oke and more at Tife Fabric Hub. 30 designs per fabric, order on WhatsApp, delivered nationwide.">
+<style>
+:root{
+  --p:#2a0a3d;--p2:#3d1257;--p3:#5a1e7a;
+  --g:#b8892a;--g2:#d4a843;
+  --cream:#faf7f2;--cream2:#f3ede4;--cream3:#e8ddd0;
+  --ink:#1a1017;--ink2:#3d2d45;--ink3:#7a6b80;--ink4:#b5a8bc;
+  --white:#fff;--border:#e8dff0;
+  --wa:#25d366;--wa2:#1ebe5b;
+  --serif:'Georgia',serif;
+  --sans:-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+button{font-family:var(--sans);cursor:pointer;}
+img{max-width:100%;display:block;}
+.c{max-width:1240px;margin:0 auto;padding:0 24px;}
+
+/* ── PRELOADER ── */
+#pl{position:fixed;inset:0;z-index:9999;background:var(--p);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .7s var(--ease),visibility .7s;}
+#pl.out{opacity:0;visibility:hidden;pointer-events:none;}
+.pl-words{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.pl-word{display:flex;overflow:hidden;}
+.pl-letter{font-family:var(--serif);color:var(--white);opacity:0;transform:translateY(28px);animation:pl-rise .5s var(--ease) forwards;line-height:1;}
+.pl-word-1 .pl-letter{font-size:48px;font-weight:900;letter-spacing:-.5px;}
+.pl-word-2 .pl-letter{font-size:20px;font-style:italic;color:var(--g2);letter-spacing:.08em;}
+@keyframes pl-rise{to{opacity:1;transform:translateY(0);}}
+.pl-line{width:0;height:1.5px;background:var(--g2);animation:pl-draw .6s var(--ease) forwards;}
+@keyframes pl-draw{to{width:100%;}}
+.pl-tag{font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);opacity:0;animation:pl-fade .5s ease forwards;}
+@keyframes pl-fade{to{opacity:1;}}
+@media(prefers-reduced-motion:reduce){.pl-letter{animation:none;opacity:1;transform:none;}.pl-line{animation:none;width:100%;}.pl-tag{animation:none;opacity:1;}}
+
+/* ── SALE POPUP FLIER ── */
+#flier-overlay{position:fixed;inset:0;z-index:600;background:rgba(26,16,23,.65);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .35s ease;pointer-events:none;}
+#flier-overlay.show{opacity:1;pointer-events:auto;}
+.flier{position:relative;background:var(--white);border-radius:22px;overflow:hidden;max-width:460px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.4);transform:scale(.92) translateY(20px);transition:transform .4s var(--ease);}
+#flier-overlay.show .flier{transform:scale(1) translateY(0);}
+.flier-close{position:absolute;top:14px;right:14px;z-index:10;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.2);border:none;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;}
+.flier-close:hover{background:rgba(0,0,0,.38);}
+.flier-banner{height:220px;background:linear-gradient(135deg,var(--p2),var(--p));position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.flier-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 24px,rgba(255,255,255,.03) 24px,rgba(255,255,255,.03) 25px);}
+.flier-banner::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,.2),transparent 65%);top:-160px;right:-80px;pointer-events:none;}
+.flier-dates-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--g2);color:#fff;font-size:10.5px;font-weight:800;padding:5px 13px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;}
+.flier-banner-content{position:relative;z-index:2;text-align:center;color:#fff;}
+.flier-pct{font-family:var(--serif);font-size:76px;font-weight:900;line-height:1;color:var(--g2);}
+.flier-off{font-size:22px;font-weight:800;margin-top:2px;}
+.flier-period{font-size:12.5px;opacity:.75;margin-top:6px;}
+.flier-body{padding:26px 28px 22px;}
+.flier-body h3{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.flier-body p{font-size:13.5px;color:var(--ink3);line-height:1.65;margin-bottom:18px;}
+.flier-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+.flier-tag{background:rgba(42,10,61,.07);color:var(--p);font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px;}
+.flier-btns{display:flex;gap:10px;}
+.flier-btn{flex:1;padding:13px;border-radius:10px;font-size:14px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s,transform .1s;font-family:var(--sans);}
+.flier-btn:active{transform:scale(.98);}
+.flier-btn-primary{background:var(--p);color:#fff;}
+.flier-btn-primary:hover{background:var(--p2);}
+.flier-btn-ghost{background:var(--cream);color:var(--ink3);border:1px solid var(--cream3);}
+.flier-btn-ghost:hover{background:var(--cream2);}
+.flier-foot{padding:0 28px 20px;text-align:center;font-size:11.5px;color:var(--ink4);}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--p);color:rgba(255,255,255,.8);font-size:12px;}
+.topbar .c{display:flex;justify-content:space-between;align-items:center;height:30px;}
+.topbar a{color:rgba(255,255,255,.75);transition:color .15s;}
+.topbar a:hover{color:#fff;}
+.topbar-r{display:flex;gap:20px;align-items:center;}
+.topbar-wa{color:var(--wa) !important;font-weight:600;display:flex;align-items:center;gap:5px;}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--cream3);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{display:flex;flex-direction:column;line-height:1;}
+.nav-logo-main{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--p);}
+.nav-logo-sub{font-size:9px;font-weight:600;color:var(--ink3);letter-spacing:.18em;text-transform:uppercase;margin-top:2px;}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--ink3);padding:8px 14px;border-radius:6px;transition:color .2s,background .2s;}
+.nav-links a:hover{color:var(--p);background:rgba(42,10,61,.05);}
+.nav-shop{background:var(--p) !important;color:#fff !important;font-weight:600 !important;padding:10px 20px !important;border-radius:7px !important;}
+.nav-shop:hover{background:var(--p2) !important;}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:transparent;border:1.5px solid var(--cream3);border-radius:8px;padding:9px 8px;cursor:pointer;}
+.hamburger span{display:block;width:100%;height:1.5px;background:var(--p);border-radius:2px;transition:transform .35s var(--ease),opacity .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(26,16,23,.5);z-index:190;opacity:0;pointer-events:none;transition:opacity .3s;}
+.nav-overlay.show{display:block;opacity:1;pointer-events:auto;}
+.nav-drawer{position:fixed;top:0;right:-100%;width:min(300px,85vw);height:100%;background:var(--cream);z-index:195;display:flex;flex-direction:column;box-shadow:-16px 0 48px rgba(0,0,0,.15);transition:right .38s var(--ease);}
+.nav-drawer.open{right:0;}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--cream3);}
+.drawer-brand{font-family:var(--serif);font-size:16px;color:var(--p);}
+.drawer-close-btn{width:32px;height:32px;border-radius:7px;background:var(--cream2);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;color:var(--ink3);}
+.drawer-links{padding:14px;display:flex;flex-direction:column;gap:2px;flex:1;}
+.drawer-links a{font-size:15px;font-weight:500;color:var(--ink2);padding:12px 14px;border-radius:9px;transition:background .15s,color .15s;}
+.drawer-links a:hover{background:rgba(42,10,61,.06);color:var(--p);}
+.drawer-foot{padding:18px 22px;border-top:1px solid var(--cream3);}
+.drawer-foot a{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--p);color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:10px;}
+
+/* ── SHOP HERO ── */
+.shop-hero{background:linear-gradient(135deg,var(--p2),var(--p));padding:52px 0;position:relative;overflow:hidden;}
+.shop-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 30px,rgba(255,255,255,.025) 30px,rgba(255,255,255,.025) 31px);}
+.shop-hero::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,.15),transparent 65%);top:-200px;right:-100px;}
+.shop-hero-inner{position:relative;z-index:1;}
+.shop-hero-badge{display:inline-block;background:var(--g2);color:#fff;font-size:10.5px;font-weight:800;padding:5px 14px;border-radius:99px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;}
+.shop-hero h1{font-family:var(--serif);font-size:36px;font-weight:700;color:#fff;letter-spacing:-.5px;margin-bottom:8px;}
+.shop-hero p{color:rgba(255,255,255,.72);font-size:15px;margin-bottom:22px;max-width:500px;}
+.sale-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 20px;border-radius:99px;font-size:13.5px;font-weight:600;backdrop-filter:blur(4px);}
+.sale-pill .pct{color:var(--g2);font-size:17px;font-weight:800;}
+
+/* ── FABRIC CARDS (main shop grid) ── */
+.shop-section{padding:48px 0 20px;}
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.fabric-card{background:var(--white);border-radius:18px;overflow:hidden;border:1px solid var(--cream3);transition:transform .25s var(--ease),box-shadow .25s;}
+.fabric-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(42,10,61,.1);}
+.fabric-card-preview{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream2),var(--cream3));overflow:hidden;}
+.fabric-card-preview img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease);}
+.fabric-card:hover .fabric-card-preview img{transform:scale(1.05);}
+.fabric-card-preview-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink4);}
+.fabric-card-preview-placeholder svg{opacity:.35;}
+.fabric-card-preview-placeholder span{font-size:11px;font-weight:600;}
+.fabric-sale-badge{position:absolute;top:10px;left:10px;background:var(--g2);color:#fff;font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:99px;}
+.fabric-count-badge{position:absolute;top:10px;right:10px;background:rgba(42,10,61,.75);color:#fff;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:99px;backdrop-filter:blur(4px);}
+.fabric-card-body{padding:16px 18px 18px;}
+.fabric-card-name{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.fabric-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:14px;}
+.fabric-price{font-size:18px;font-weight:800;color:var(--p);}
+.fabric-price-old{font-size:12.5px;color:var(--ink4);text-decoration:line-through;}
+.fabric-price-save{font-size:11.5px;font-weight:700;color:var(--g);}
+.view-designs-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--cream);color:var(--p);border:1.5px solid var(--border);padding:11px;border-radius:10px;font-size:13.5px;font-weight:700;cursor:pointer;transition:all .2s;font-family:var(--sans);}
+.view-designs-btn:hover{background:var(--p);color:#fff;border-color:var(--p);}
+.view-designs-btn svg{transition:transform .2s;}
+.view-designs-btn:hover svg{transform:rotate(45deg);}
+
+/* ── DESIGNS MODAL ── */
+#designs-overlay{position:fixed;inset:0;z-index:400;background:rgba(26,16,23,.7);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:flex-end;justify-content:center;}
+#designs-overlay.show{opacity:1;pointer-events:auto;}
+.designs-sheet{background:var(--cream);width:100%;max-width:1100px;max-height:90vh;border-radius:24px 24px 0 0;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .4s var(--ease);}
+#designs-overlay.show .designs-sheet{transform:translateY(0);}
+.designs-sheet-head{display:flex;align-items:center;justify-content:space-between;padding:20px 28px 16px;border-bottom:1px solid var(--cream3);flex-shrink:0;}
+.designs-sheet-title{display:flex;flex-direction:column;gap:3px;}
+.designs-sheet-title h2{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);}
+.designs-sheet-title span{font-size:13px;color:var(--ink3);}
+.designs-sheet-close{width:38px;height:38px;border-radius:50%;background:var(--cream2);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--ink2);transition:background .15s;flex-shrink:0;}
+.designs-sheet-close:hover{background:var(--cream3);}
+.designs-sheet-drag{width:40px;height:4px;border-radius:99px;background:var(--cream3);margin:12px auto 0;}
+.designs-grid-wrap{overflow-y:auto;padding:24px 28px 32px;flex:1;}
+.designs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+.design-tile{border-radius:12px;overflow:hidden;background:var(--cream2);border:2px solid transparent;transition:border-color .2s,transform .2s;cursor:pointer;position:relative;}
+.design-tile:hover{border-color:var(--g2);transform:translateY(-2px);}
+.design-tile-img{aspect-ratio:3/4;width:100%;object-fit:cover;display:block;}
+.design-tile-placeholder{aspect-ratio:3/4;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--ink4);background:linear-gradient(135deg,var(--cream2),var(--cream3));}
+.design-tile-placeholder svg{opacity:.3;}
+.design-tile-placeholder span{font-size:10px;font-weight:600;text-align:center;padding:0 8px;}
+.design-num{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(26,16,23,.85),transparent);color:#fff;font-size:11px;font-weight:700;padding:16px 8px 8px;text-align:center;}
+
+/* ── LIGHTBOX ── */
+#lightbox{position:fixed;inset:0;z-index:700;background:rgba(10,4,16,.95);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
+#lightbox.show{opacity:1;pointer-events:auto;}
+.lb-inner{position:relative;display:flex;flex-direction:column;align-items:center;max-width:560px;width:100%;padding:20px;}
+.lb-close{position:absolute;top:-10px;right:0;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.lb-close:hover{background:rgba(255,255,255,.2);}
+.lb-img-wrap{position:relative;width:100%;border-radius:16px;overflow:hidden;border:3px solid var(--g2);}
+.lb-img{width:100%;max-height:65vh;object-fit:contain;display:block;background:var(--cream2);}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;backdrop-filter:blur(4px);}
+.lb-nav:hover{background:rgba(255,255,255,.3);}
+.lb-prev{left:10px;}.lb-next{right:10px;}
+.lb-info{margin-top:16px;text-align:center;color:#fff;}
+.lb-design-num{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--g2);margin-bottom:4px;}
+.lb-fabric-name{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:14px;}
+.lb-price-row{display:flex;align-items:baseline;gap:10px;justify-content:center;margin-bottom:20px;}
+.lb-price{font-size:22px;font-weight:800;color:#fff;}
+.lb-price-old{font-size:14px;color:rgba(255,255,255,.45);text-decoration:line-through;}
+.lb-order-btn{display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s,transform .12s;font-family:var(--sans);}
+.lb-order-btn:hover{background:var(--wa2);}
+.lb-order-btn:active{transform:scale(.98);}
+.lb-counter{font-size:12px;color:rgba(255,255,255,.4);margin-top:12px;}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--white);border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3);padding:0;margin-top:40px;}
+.trust-bar .c{display:grid;grid-template-columns:repeat(3,1fr);}
+.trust-item{display:flex;align-items:center;gap:14px;padding:22px 24px;position:relative;}
+.trust-item:not(:last-child)::after{content:'';position:absolute;right:0;top:15%;height:70%;width:1px;background:var(--cream3);}
+.trust-icon{width:40px;height:40px;border-radius:11px;background:rgba(42,10,61,.07);color:var(--p);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.trust-item strong{font-size:14px;display:block;margin-bottom:2px;color:var(--ink);}
+.trust-item span{font-size:12px;color:var(--ink3);}
+
+/* ── FOOTER ── */
+.footer{background:var(--p);color:rgba(255,255,255,.7);margin-top:0;}
+.footer-top{padding:48px 0 28px;}
+.footer-top .c{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;}
+.f-logo{font-family:var(--serif);font-size:20px;color:#fff;margin-bottom:10px;display:block;}
+.f-logo em{color:var(--g2);font-style:normal;}
+.f-desc{font-size:13.5px;line-height:1.65;max-width:230px;margin-bottom:20px;}
+.f-wa{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#fff;font-size:13px;font-weight:700;padding:9px 16px;border-radius:8px;transition:background .15s;}
+.f-wa:hover{background:var(--wa2);}
+.f-col-title{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px;}
+.f-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.55);margin-bottom:11px;transition:color .15s;cursor:pointer;}
+.f-col a:hover{color:#fff;}
+.footer-btm{border-top:1px solid rgba(255,255,255,.08);padding:16px 0;}
+.footer-btm .c{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.35);}
+
+/* ── WA FAB ── */
+.wa-fab{position:fixed;bottom:28px;right:28px;z-index:300;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,.4);transition:transform .2s;}
+.wa-fab:hover{transform:scale(1.1);}
+.wa-fab-ring{position:absolute;width:100%;height:100%;border-radius:50%;border:2px solid var(--wa);opacity:0;animation:fab-ring 2.5s ease-out infinite 2s;}
+@keyframes fab-ring{0%{transform:scale(1);opacity:.6;}100%{transform:scale(1.8);opacity:0;}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.shop-grid{grid-template-columns:repeat(3,1fr);}.designs-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:768px){
+  .c{padding:0 16px;}
+  .topbar .c span{display:none;}
+  .nav-links a:not(.nav-shop){display:none;}
+  .hamburger{display:flex;}
+  .shop-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+  .shop-hero h1{font-size:26px;}
+  .designs-grid{grid-template-columns:repeat(3,1fr);}
+  .designs-sheet{max-height:92vh;border-radius:20px 20px 0 0;}
+  .designs-grid-wrap{padding:16px 16px 28px;}
+  .designs-sheet-head{padding:16px 20px 14px;}
+  .trust-bar .c{grid-template-columns:1fr;}
+  .trust-item:not(:last-child)::after{display:none;}
+  .trust-item{border-bottom:1px solid var(--cream3);}
+  .footer-top .c{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .c{padding:0 12px;}
+  .shop-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .fabric-card-body{padding:12px 14px 14px;}
+  .fabric-card-name{font-size:14px;}
+  .fabric-price{font-size:16px;}
+  .designs-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .lb-inner{padding:16px;}
+  .lb-img{max-height:50vh;}
+  .lb-order-btn{width:100%;justify-content:center;}
+  .footer-top .c{grid-template-columns:1fr;}
+  .footer-btm .c{flex-direction:column;gap:6px;text-align:center;}
+  .wa-fab{bottom:20px;right:20px;width:50px;height:50px;}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="pl">
+  <div class="pl-words">
+    <div class="pl-word pl-word-1">
+      <span class="pl-letter" style="animation-delay:.05s">T</span><span class="pl-letter" style="animation-delay:.13s">I</span><span class="pl-letter" style="animation-delay:.21s">F</span><span class="pl-letter" style="animation-delay:.29s">E</span>
+    </div>
+    <div class="pl-word pl-word-2">
+      <span class="pl-letter" style="animation-delay:.55s">F</span><span class="pl-letter" style="animation-delay:.61s">a</span><span class="pl-letter" style="animation-delay:.67s">b</span><span class="pl-letter" style="animation-delay:.73s">r</span><span class="pl-letter" style="animation-delay:.79s">i</span><span class="pl-letter" style="animation-delay:.85s">c</span><span class="pl-letter" style="animation-delay:.91s;width:8px;">&nbsp;</span><span class="pl-letter" style="animation-delay:.97s">H</span><span class="pl-letter" style="animation-delay:1.03s">u</span><span class="pl-letter" style="animation-delay:1.09s">b</span>
+    </div>
+    <div class="pl-line" style="animation-delay:1.25s"></div>
+  </div>
+  <div class="pl-tag" style="animation-delay:1.75s">Premium Nigerian Fabrics</div>
+</div>
+
+<!-- SALE FLIER POPUP -->
+<div id="flier-overlay">
+  <div class="flier">
+    <button class="flier-close" id="flierClose">✕</button>
+    <div class="flier-banner">
+      <span class="flier-dates-badge">10th – 23rd August 2026</span>
+      <div class="flier-banner-content">
+        <div class="flier-pct">15%</div>
+        <div class="flier-off">OFF Everything</div>
+        <div class="flier-period">Limited time — 10th to 23rd August 2026</div>
+      </div>
+    </div>
+    <div class="flier-body">
+      <h3>Welcome to Tife Fabric Hub! 🧵</h3>
+      <p>We're running a special sale from 10th to 23rd August. Get 15% off all fabrics — browse designs, pick your favourite, and order on WhatsApp.</p>
+      <div class="flier-tags">
+        <span class="flier-tag">Ankara</span>
+        <span class="flier-tag">Adire Crepe</span>
+        <span class="flier-tag">Adire Cotton</span>
+        <span class="flier-tag">Mix & Match</span>
+        <span class="flier-tag">Ankara & Aso Oke</span>
+      </div>
+      <div class="flier-btns">
+        <button class="flier-btn flier-btn-primary" id="flierShop">Browse Designs</button>
+        <button class="flier-btn flier-btn-ghost" id="flierDismiss">Maybe Later</button>
+      </div>
+    </div>
+    <div class="flier-foot">Chat us on WhatsApp: 0909 462 6953</div>
+  </div>
+</div>
+
+<!-- DESIGNS MODAL (bottom sheet) -->
+<div id="designs-overlay">
+  <div class="designs-sheet" id="designsSheet">
+    <div class="designs-sheet-drag"></div>
+    <div class="designs-sheet-head">
+      <div class="designs-sheet-title">
+        <h2 id="sheetFabricName">Ankara</h2>
+        <span id="sheetFabricMeta">30 designs · tap any to preview & order</span>
+      </div>
+      <button class="designs-sheet-close" id="sheetClose">✕</button>
+    </div>
+    <div class="designs-grid-wrap">
+      <div class="designs-grid" id="designsGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose">✕</button>
+    <div class="lb-img-wrap">
+      <img id="lbImg" src="" alt="" class="lb-img">
+      <button class="lb-nav lb-prev" id="lbPrev">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="lb-nav lb-next" id="lbNext">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="lb-info">
+      <div class="lb-design-num" id="lbDesignNum">Design #1</div>
+      <div class="lb-fabric-name" id="lbFabricName">Ankara</div>
+      <div class="lb-price-row">
+        <span class="lb-price" id="lbPrice">₦5,000</span>
+        <span class="lb-price-old" id="lbPriceOld"></span>
+      </div>
+      <button class="lb-order-btn" id="lbOrderBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+        Order this Design on WhatsApp
+      </button>
+      <div class="lb-counter" id="lbCounter">1 of 30</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="c">
+    <span>Premium fabrics — adire, ankara, aso oke & more · Nationwide delivery</span>
+    <div class="topbar-r">
+      <a href="tel:+2349094626953">0909 462 6953</a>
+      <a href="https://wa.me/2349094626953" target="_blank" rel="noopener" class="topbar-wa">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="c nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">Tife Fabric Hub</span>
+      <span class="nav-logo-sub">Premium Nigerian Fabrics</span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#collection">Collection</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#how-it-works">How it Works</a>
+        <a href="shop.html" class="nav-shop">Shop Now</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-head">
+    <span class="drawer-brand">Tife Fabric Hub</span>
+    <button class="drawer-close-btn" id="drawerClose">✕</button>
+  </div>
+  <div class="drawer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#collection">Collection</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#how-it-works">How to Order</a>
+  </div>
+  <div class="drawer-foot">
+    <a href="https://wa.me/2349094626953" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- SHOP HERO -->
+<section class="shop-hero">
+  <div class="c shop-hero-inner">
+    <span class="shop-hero-badge" id="heroBadge">Browse Our Collection</span>
+    <h1>Find Your Perfect Fabric</h1>
+    <p>8 fabric types, 30 designs each — browse, preview, and order directly on WhatsApp. Fast delivery across Nigeria.</p>
+    <div class="sale-pill" id="salePill" style="display:none;">
+      <span class="pct">15% OFF</span>
+      <span>all fabrics — 10th to 23rd August 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- FABRIC CARDS -->
+<section class="shop-section">
+  <div class="c">
+    <div class="shop-grid" id="shopGrid"></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="c">
+    <div class="trust-item">
+      <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3z"/></svg></div>
+      <div><strong>100% Authentic Fabrics</strong><span>Genuine quality, every design</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div><strong>Order on WhatsApp</strong><span>Real person, fast response</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></div>
+      <div><strong>Nationwide Delivery</strong><span>Lagos, Abuja, PH & everywhere</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="c">
+      <div>
+        <span class="f-logo">Tife <em>Fabric</em> Hub</span>
+        <p class="f-desc">Your trusted source for premium Nigerian fabrics. Quality you can feel, delivered to your door.</p>
+        <a href="https://wa.me/2349094626953" target="_blank" rel="noopener" class="f-wa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+          0909 462 6953
+        </a>
+      </div>
+      <div class="f-col">
+        <p class="f-col-title">Fabrics</p>
+        <a onclick="openSheet(0)">Ankara</a>
+        <a onclick="openSheet(1)">Medium Adire Crepe</a>
+        <a onclick="openSheet(2)">Big Adire Crepe</a>
+        <a onclick="openSheet(3)">Red Crack Adire Cotton</a>
+        <a onclick="openSheet(4)">Adire Cotton</a>
+        <a onclick="openSheet(5)">Adire Mix & Match</a>
+        <a onclick="openSheet(6)">Ankara & Aso Oke</a>
+      </div>
+      <div class="f-col">
+        <p class="f-col-title">Information</p>
+        <a href="index.html">Homepage</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#how-it-works">How to Order</a>
+        <a href="https://wa.me/2349094626953" target="_blank" rel="noopener">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div class="c">
+      <span>&copy; 2026 Tife Fabric Hub. All rights reserved.</span>
+      <span>Made with 🧵 in Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FAB -->
+<a href="https://wa.me/2349094626953?text=Hello%20Tife%20Fabric%20Hub%2C%20I%20want%20to%20order%20a%20fabric" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
+  <span class="wa-fab-ring"></span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.78 14.13c-.25.7-1.45 1.34-2 1.43-.52.08-1.17.12-1.89-.12-.43-.14-.98-.32-1.69-.62-2.98-1.29-4.92-4.28-5.07-4.48-.15-.2-1.21-1.6-1.21-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.08.15.13.33.03.53-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.18.3.8 1.32 1.72 2.13 1.18 1.05 2.18 1.38 2.5 1.53.32.15.5.13.69-.05.2-.2.82-.94 1.04-1.27.22-.32.44-.27.74-.16.3.1 1.9.9 2.23 1.06.32.16.54.24.62.38.08.13.08.78-.17 1.49z"/></svg>
+</a>
+
+<script>
+const WA = '2349094626953';
+const SALE_START = new Date('2026-08-10');
+const SALE_END   = new Date('2026-08-24');
+const ON_SALE    = new Date() >= SALE_START && new Date() < SALE_END;
+const DISC       = 0.15;
+const fmt        = n => '₦' + Math.round(n).toLocaleString('en-NG');
+const saleP      = p => Math.round(p * (1 - DISC));
+
+// ── Fabric catalogue ──────────────────────────────────────────────────────
+const FABRICS = [
+  { id:'ankara',      name:'Ankara',                price:5000,  imgPfx:'ankara',      preview:'ankara-1.jpg' },
+  { id:'adire-med',   name:'Medium Adire Crepe',    price:13500, imgPfx:'adire-medium', preview:'adire-medium-1.jpg' },
+  { id:'adire-big',   name:'Big Adire Crepe',       price:16500, imgPfx:'adire-big',   preview:'adire-big-1.jpg' },
+  { id:'adire-red',   name:'Red Crack Adire Cotton',price:15000, imgPfx:'adire-red',   preview:'adire-red-1.jpg' },
+  { id:'adire-cot',   name:'Adire Cotton',          price:18000, imgPfx:'adire-cotton', preview:'adire-cotton-1.jpg' },
+  { id:'adire-mix',   name:'Adire Mix & Match',     price:16000, imgPfx:'adire-mix',   preview:'adire-mix-1.jpg' },
+  { id:'ankara-aso',  name:'Ankara & Aso Oke',      price:5800,  imgPfx:'ankara-asoke', preview:'ankara-asoke-1.jpg' },
+];
+const DESIGNS_PER = 30;
+
+// Show/hide sale elements
+if(ON_SALE){
+  document.getElementById('salePill').style.display = 'inline-flex';
+  document.getElementById('heroBadge').textContent  = '🔥 Sale — 10th to 23rd August';
+}
+
+// ── Build main fabric cards ───────────────────────────────────────────────
+function buildGrid(){
+  const grid = document.getElementById('shopGrid');
+  grid.innerHTML = FABRICS.map((f,i) => {
+    const sp = saleP(f.price);
+    const save = fmt(f.price - sp);
+    return `
+    <div class="fabric-card">
+      <div class="fabric-card-preview">
+        ${ON_SALE ? '<span class="fabric-sale-badge">15% OFF</span>' : ''}
+        <span class="fabric-count-badge">30 designs</span>
+        <img src="${f.preview}" alt="${f.name}"
+          loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\\'fabric-card-preview-placeholder\\'><svg width=\\'36\\' height=\\'36\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.2\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><path d=\\'M3 9h18M9 21V9\\'/></rect></svg><span>${f.name}</span></div>';">
+      </div>
+      <div class="fabric-card-body">
+        <p class="fabric-card-name">${f.name}</p>
+        <div class="fabric-price-row">
+          <span class="fabric-price">${fmt(ON_SALE ? sp : f.price)}</span>
+          ${ON_SALE ? `<span class="fabric-price-old">${fmt(f.price)}</span><span class="fabric-price-save">Save ${save}</span>` : ''}
+        </div>
+        <button class="view-designs-btn" onclick="openSheet(${i})">
+          View 30 Designs
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Bottom sheet (designs modal) ──────────────────────────────────────────
+let activeF = null;
+
+function openSheet(idx){
+  activeF = FABRICS[idx];
+  const sp = saleP(activeF.price);
+  document.getElementById('sheetFabricName').textContent = activeF.name;
+  document.getElementById('sheetFabricMeta').textContent =
+    `30 designs · ${ON_SALE ? fmt(sp)+' (15% off '+fmt(activeF.price)+')' : fmt(activeF.price)} · tap any design to preview & order`;
+
+  // Build design tiles
+  const dgrid = document.getElementById('designsGrid');
+  dgrid.innerHTML = Array.from({length:DESIGNS_PER},(_,i)=>{
+    const num = i+1;
+    const src = `${activeF.imgPfx}-${num}.jpg`;
+    return `
+    <div class="design-tile" onclick="openLightbox(${i})">
+      <img class="design-tile-img" src="${src}" alt="${activeF.name} Design #${num}"
+        loading="lazy"
+        onerror="this.parentNode.innerHTML='<div class=\\'design-tile-placeholder\\'><svg width=\\'28\\' height=\\'28\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.2\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/></svg><span>Design #${num}</span></div><div class=\\'design-num\\'>Design #${num}</div>';">
+      <div class="design-num">Design #${num}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('designs-overlay').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function closeSheet(){
+  document.getElementById('designs-overlay').classList.remove('show');
+  if(!document.getElementById('lightbox').classList.contains('show'))
+    document.body.style.overflow='';
+}
+
+document.getElementById('sheetClose').addEventListener('click', closeSheet);
+document.getElementById('designs-overlay').addEventListener('click', e=>{
+  if(e.target===document.getElementById('designs-overlay')) closeSheet();
+});
+
+// drag to close on mobile
+let sheetStartY=0;
+const sheet = document.getElementById('designsSheet');
+sheet.addEventListener('touchstart',e=>{sheetStartY=e.touches[0].clientY;},{passive:true});
+sheet.addEventListener('touchend',e=>{
+  if(e.changedTouches[0].clientY-sheetStartY>80) closeSheet();
+});
+
+// ── Lightbox ──────────────────────────────────────────────────────────────
+let lbIdx = 0;
+
+function openLightbox(idx){
+  lbIdx = idx;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function updateLightbox(){
+  if(!activeF) return;
+  const num = lbIdx+1;
+  const src = `${activeF.imgPfx}-${num}.jpg`;
+  const sp  = saleP(activeF.price);
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lbImg').alt = `${activeF.name} Design #${num}`;
+  document.getElementById('lbDesignNum').textContent = `Design #${num}`;
+  document.getElementById('lbFabricName').textContent = activeF.name;
+  document.getElementById('lbPrice').textContent = fmt(ON_SALE ? sp : activeF.price);
+  document.getElementById('lbPriceOld').textContent = ON_SALE ? fmt(activeF.price) : '';
+  document.getElementById('lbCounter').textContent = `${num} of ${DESIGNS_PER}`;
+
+  // Build WhatsApp message
+  const saleNote = ON_SALE ? `%20(sale%20price%3A%20${fmt(sp).replace('₦','%E2%82%A6')})` : '';
+  const msg = `Hello%20Tife%20Fabric%20Hub%2C%20I%20want%20to%20order%3A%0A%0AFabric%3A%20${encodeURIComponent(activeF.name)}%0ADesign%3A%20%23${num}${saleNote}%0APrice%3A%20${fmt(ON_SALE?sp:activeF.price).replace('₦','%E2%82%A6')}%0A%0APlease%20confirm%20availability%20and%20delivery.%20Thank%20you!`;
+  document.getElementById('lbOrderBtn').onclick = ()=>window.open(`https://wa.me/${WA}?text=${msg}`,'_blank');
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('show');
+  if(!document.getElementById('designs-overlay').classList.contains('show'))
+    document.body.style.overflow='';
+}
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lightbox').addEventListener('click', e=>{
+  if(e.target===document.getElementById('lightbox')) closeLightbox();
+});
+document.getElementById('lbPrev').addEventListener('click', e=>{
+  e.stopPropagation();
+  lbIdx=(lbIdx-1+DESIGNS_PER)%DESIGNS_PER;
+  updateLightbox();
+});
+document.getElementById('lbNext').addEventListener('click', e=>{
+  e.stopPropagation();
+  lbIdx=(lbIdx+1)%DESIGNS_PER;
+  updateLightbox();
+});
+
+// Keyboard nav
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('lightbox').classList.contains('show')){
+    if(e.key==='ArrowLeft'){lbIdx=(lbIdx-1+DESIGNS_PER)%DESIGNS_PER;updateLightbox();}
+    if(e.key==='ArrowRight'){lbIdx=(lbIdx+1)%DESIGNS_PER;updateLightbox();}
+    if(e.key==='Escape') closeLightbox();
+  } else if(document.getElementById('designs-overlay').classList.contains('show')){
+    if(e.key==='Escape') closeSheet();
+  }
+});
+
+// Touch swipe in lightbox
+let lbTouchX=0;
+document.getElementById('lightbox').addEventListener('touchstart',e=>{lbTouchX=e.touches[0].clientX;},{passive:true});
+document.getElementById('lightbox').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-lbTouchX;
+  if(Math.abs(dx)>50){
+    lbIdx=dx<0?(lbIdx+1)%DESIGNS_PER:(lbIdx-1+DESIGNS_PER)%DESIGNS_PER;
+    updateLightbox();
+  }
+});
+
+// ── Sale flier popup ──────────────────────────────────────────────────────
+function showFlier(){ document.getElementById('flier-overlay').classList.add('show'); }
+function hideFlier(){ document.getElementById('flier-overlay').classList.remove('show'); }
+document.getElementById('flierClose').addEventListener('click',hideFlier);
+document.getElementById('flierDismiss').addEventListener('click',hideFlier);
+document.getElementById('flierShop').addEventListener('click',()=>{
+  hideFlier();
+  document.getElementById('shopGrid').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('flier-overlay').addEventListener('click',e=>{
+  if(e.target===document.getElementById('flier-overlay')) hideFlier();
+});
+
+// ── Hamburger ─────────────────────────────────────────────────────────────
+const hbg=document.getElementById('hamburger');
+const drawer=document.getElementById('navDrawer');
+const nOverlay=document.getElementById('navOverlay');
+const dClose=document.getElementById('drawerClose');
+function openMenu(){hbg.classList.add('open');drawer.classList.add('open');nOverlay.classList.add('show');document.body.style.overflow='hidden';}
+function closeMenu(){hbg.classList.remove('open');drawer.classList.remove('open');nOverlay.classList.remove('show');document.body.style.overflow='';}
+hbg.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
+dClose.addEventListener('click',closeMenu);
+nOverlay.addEventListener('click',closeMenu);
+
+// ── Init ──────────────────────────────────────────────────────────────────
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('pl').classList.add('out');
+    setTimeout(showFlier, 800);
+  }, 2400);
+});
+
+buildGrid();
+</script>
+</body>
+</html>
